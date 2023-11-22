@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-
     <style>
-          #container {
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #container {
             display: inline-block;
             width: 612px;
             height: 612px;
-            margin: 0 auto;
             background: black;
             position: relative;
             border: 5px solid black;
@@ -19,8 +25,8 @@
             box-shadow: 0 5px 50px #333
         }
 
-        #navbar{
-            background: rgb(16, 148, 144) ;
+        #navbar {
+            background: rgb(16, 148, 144);
             position: relative;
             border-radius: 10px;
             box-shadow: 0 5px 50px #333;
@@ -29,47 +35,47 @@
             justify-content: center;
             margin-bottom: 50px;
         }
-        #img{
+
+        #img {
             text-align: center;
             justify-content: center;
         }
 
-        #cam{
+        #cam {
             text-align: center;
             justify-content: center;
         }
 
-        #change{
+        #change {
             background-color: transparent;
             border: none;
             cursor: pointer;
         }
 
-        #change :hover{
+        #change:hover {
             background-color: aqua;
         }
-
     </style>
-    
 </head>
-<body>
-    <div id="navbar">
-        <h1>ANALISIS DE EMOCIONES</h1>
-    <button id="change">Cambiar Vista</button>
-</div>
-<div id="img">
-    <iframe id="img" src="index.html" width="650" height="700" visible="false" ></iframe>
-</div>
-<div id="cam">
-    <iframe id="cam" src="webcam.html" width="550" height="550"></iframe>
-</div>
 
+<body>
+    <div id="container">
+        <div id="navbar">
+            <h1>ANALISIS DE EMOCIONES</h1>
+            <button id="change">Cambiar Vista</button>
+        </div>
+        <div id="img">
+            <iframe id="imgFrame" src="index.html" width="650" height="700" style="display: block;"></iframe>
+        </div>
+        <div id="cam">
+            <iframe id="camFrame" src="webcam.html" width="550" height="550" style="display: none;"></iframe>
+        </div>
+    </div>
 
     <script>
-        document.getElementById('toggleButton').addEventListener('click', function() {
-            var imgIframe = document.getElementById('img');
-            var camIframe = document.getElementById('cam');
-
+        document.getElementById('change').addEventListener('click', function () {
+            var imgIframe = document.getElementById('imgFrame');
+            var camIframe = document.getElementById('camFrame');
             if (imgIframe.style.display === 'none') {
                 imgIframe.style.display = 'block';
                 camIframe.style.display = 'none';
@@ -79,15 +85,12 @@
             }
         });
     </script>
-
 </body>
 
-
-
-<script >
-    function open(){
+<script>
+    function open() {
         window.location.href = './index.html';
-
     }
 </script>
+
 </html>
